@@ -1,0 +1,24 @@
+﻿init -2 python:
+    import sys
+    sys.path.append(renpy.loader.transfn("scripts"))
+    
+init -1 python:
+    from random import *
+    from ffe_data import *
+    from ffe_combatants import *
+    from ffe_actions import *
+   
+init python:
+    fight = FFEngine([FFCombatant(Person("Witcher", "bully"))], [FFCombatant(Person("Slave", "chick"))])
+
+# The game starts here.
+label start:
+    show expression "images/bg.jpg" as bg
+    $ fight.start()    
+    
+    show screen ffe_battle
+    $ user_input = ui.interact()
+    
+    return
+    
+   

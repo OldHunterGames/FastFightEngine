@@ -1,0 +1,29 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 17, in script
+    $ fight.start()
+  File "game/script.rpy", line 17, in <module>
+    $ fight.start()
+IndexError: pop index out of range
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 17, in script
+    $ fight.start()
+  File "F:\Development\RenPy\renpy-6.15.7-sdk\renpy\ast.py", line 785, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "F:\Development\RenPy\renpy-6.15.7-sdk\renpy\python.py", line 1448, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 17, in <module>
+    $ fight.start()
+  File "F:\Development\RenPy\Fast Fight Engine/game\scripts\ffe_engine.py", line 29, in start
+    ally.draw(ally.potential_size)
+  File "F:\Development\RenPy\Fast Fight Engine/game\scripts\ffe_engine.py", line 438, in draw
+    self.potential.append(self.reserve.pop(n))
+IndexError: pop index out of range
+
+Windows-7-6.1.7601-SP1
+Ren'Py 6.99.4.467
+Fast Fight Engine 0.1
