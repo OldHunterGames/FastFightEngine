@@ -15,7 +15,7 @@ class Person(object):
         self.name = name
         self.avatar = "images/ava/witcher.jpg"
         self.ff_combat_style = style
-        self.physique = 3
+        self.physique = 300
         self.agility = 3
         self.spirit = 3
         self.mind = 3

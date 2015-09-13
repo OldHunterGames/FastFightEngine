@@ -30,16 +30,14 @@ label turn_resolution:
     
 label new_turn:
     "NEW TURN"
-    $ a = ui.interact()
+    call user_turn
     return
 
 label defeat:
     "Defeat"
-    $ a = ui.interact()
     return
 
 label victory:
     "Victory. Enemy: [fight.target.hp] Ally: [fight.actor.hp]"
-    $ a = ui.interact()
     return    
     

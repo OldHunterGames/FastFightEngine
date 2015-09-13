@@ -59,7 +59,7 @@ screen ffe_battle():
             frame:
                 align (0.5, 0.05)
                 text fight.target.name
-            imagebutton: # PLAYER AVATAR
+            imagebutton: # ENEMY AVATAR
                 align (0.05, 0.1)
                 idle im.Scale(fight.target.avatar, 200, 200)
                 hover im.MatrixColor(im.Scale(fight.target.avatar, 200, 200), im.matrix.brightness(0.05))
