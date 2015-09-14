@@ -7,7 +7,7 @@ While running game code:
     $ act = fight.resolution_phase()
   File "game/script.rpy", line 27, in <module>
     $ act = fight.resolution_phase()
-AttributeError: 'FFCombatant' object has no attribute 'atk'
+AttributeError: 'str' object has no attribute 'clear'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -24,11 +24,9 @@ Full traceback:
     $ act = fight.resolution_phase()
   File "F:\Development\RenPy\Fast Fight Engine/game\scripts\ffe_engine.py", line 52, in resolution_phase
     self.actions_resolution("fast")
-  File "F:\Development\RenPy\Fast Fight Engine/game\scripts\ffe_engine.py", line 84, in actions_resolution
-    self.resolution(summary)
-  File "F:\Development\RenPy\Fast Fight Engine/game\scripts\ffe_engine.py", line 117, in resolution
-    for key in self.actor.atk:
-AttributeError: 'FFCombatant' object has no attribute 'atk'
+  File "F:\Development\RenPy\Fast Fight Engine/game\scripts\ffe_engine.py", line 81, in actions_resolution
+    side.clear()
+AttributeError: 'str' object has no attribute 'clear'
 
 Windows-7-6.1.7601-SP1
 Ren'Py 6.99.4.467

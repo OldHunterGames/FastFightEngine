@@ -22,7 +22,7 @@ screen ffe_battle():
             hbox:
                 align (0.5, 0.95)
                 text "[fight.actor.hp]"
-                bar value fight.actor.hp
+                bar value fight.actor.hp range fight.actor.max_hp
 
     fixed:
         ypos 0.50
@@ -42,12 +42,11 @@ screen ffe_battle():
                  vbox:
                      xalign 0.5
                      spacing 10
-                     frame:
-                         text card.name    
-                     textbutton "Resolve":
-                         xpos 0
-                         ypos 220
-                         action Return(["make_action", card])
+                     textbutton card.name:
+                         action Return(["make_action", card])  
+                     fixed:
+                         text card.show()                   
+                     
                          
     frame:
         align (0.98, 0.01)
@@ -67,7 +66,7 @@ screen ffe_battle():
             hbox:
                 align (0.5, 0.95)
                 text "[fight.target.hp] "
-                bar value fight.target.hp
+                bar value fight.target.hp range fight.target.max_hp
         
     fixed:
         xalign 0.5
@@ -87,3 +86,6 @@ screen ffe_battle():
                      frame:
                          align (0.5, 0.05)
                          text fight.target.action.name
+                     fixed:
+                         align (0.5, 0.05)
+                         text fight.target.action.show()

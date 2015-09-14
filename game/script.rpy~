@@ -15,10 +15,29 @@ init python:
 label start:
     show expression "images/bg.jpg" as bg
     $ fight.start()    
-    
     show screen ffe_battle
-    $ user_input = ui.interact()
+
+label user_turn:    
+    $ act = fight.actor_move(ui.interact()[1])        
+    call expression act
     
     return
+
+label turn_resolution:
+    $ act = fight.resolution_phase()
+    call expression act
+    return
     
-   
+label new_turn:
+    "NEW TURN"
+    call user_turn
+    return
+
+label defeat:
+    "Defeat"
+    return
+
+label victory:
+    "Victory. Enemy: [fight.target.hp] Ally: [fight.actor.hp]"
+    return    
+    

@@ -29,7 +29,7 @@ label turn_resolution:
     return
     
 label new_turn:
-    "NEW TURN"
+    "New Turn"
     call user_turn
     return
 

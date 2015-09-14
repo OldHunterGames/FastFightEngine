@@ -83,16 +83,16 @@ class FFEngine(object):
                     summary[side].addup(action)
         self.resolution(summary)
 
-    def damage_reduction(self, defender_summ, def_type, attacker_sum, atk_type):
-        if defender_summ.defence[def_type] > attacker_sum.atk[atk_type]:
-            defender_summ.defence[def_type] -= attacker_sum.atk[atk_type]
+    def damage_reduction(self, defender_sum, def_type, attacker_sum, atk_type):
+        if defender_sum.defence[def_type] > attacker_sum.atk[atk_type]:
+            defender_sum.defence[def_type] -= attacker_sum.atk[atk_type]
             attacker_sum.atk[atk_type] = 0
-        elif defender_summ.defence[def_type] < attacker_sum.atk[atk_type]:
-            attacker_sum.atk[atk_type] -= defender_summ.defence[def_type]
-            defender_summ.defence[def_type] = 0
+        elif defender_sum.defence[def_type] < attacker_sum.atk[atk_type]:
+            attacker_sum.atk[atk_type] -= defender_sum.defence[def_type]
+            defender_sum.defence[def_type] = 0
         else:
             attacker_sum.atk[atk_type] = 0
-            defender_summ.defence[def_type] = 0
+            defender_sum.defence[def_type] = 0
 
     def resolution(self, summary):
         # TODO: Add oncoming damage
@@ -185,9 +185,44 @@ class FFEAction(object):
         self.tactical += action.tactical
         self.trickery += action.trickery
         self.unblockable += action.unblockable
-        self.speed_rate += action.speed_rate
         self.on_hit += action.on_hit
         self.use_up += action.use_up
+
+    def show(self):
+        show = ""
+        if self.atk["sly"]:
+            show += "ATK(Sly): {}\n".format(str(self.atk["sly"]))
+        if self.atk["bold"]:
+            show += "ATK(Bld): {}\n".format(str(self.atk["bold"]))
+        if self.atk["subdual"]:
+            show += "ATK(Sub): {}\n".format(str(self.atk["subdual"]))
+        if self.defence["total"]:
+            show += "DEF(X): {}\n".format(str(self.defence["total"]))
+        if self.defence["sly"]:
+            show += "DEF(Sly): {}\n".format(str(self.defence["sly"]))
+        if self.defence["bold"]:
+            show += "DEF(Bld): {}\n".format(str(self.defence["bold"]))
+        if self.defence["subdual"]:
+            show += "DEF(Sub): {}\n".format(str(self.defence["subdual"]))
+        if self.oncoming["sly"]:
+            show += "+ Next Sly: {}\n".format(str(self.oncoming["sly"]))
+        if self.oncoming["bold"]:
+            show += "+ Next Bld: {}\n".format(str(self.oncoming["bold"]))
+        if self.oncoming["subdual"]:
+            show += "+ Next Sub: {}\n".format(str(self.oncoming["subdual"]))
+        if self.ongoing_dmg:
+            show += "Ongoing {}\n".format(str(self.ongoing_dmg))
+        if self.recovery:
+            show += "Recover {} hp\n".format(str(self.recovery))
+        if self.regenerate:
+            show += "Regenerate: {} hp / round\n".format(str(self.regenerate))
+        if self.backlash:
+            show += "Backlash {} hp\n".format(str(self.backlash))
+        if self.tactical:
+            show += "Tactic x{}\n".format(str(self.tactical))
+        if self.unblockable:
+            show += "Unblockable\n"
+        return show
 
 combat_style_actions = {
     "chick": [
