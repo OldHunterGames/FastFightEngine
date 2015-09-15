@@ -436,14 +436,7 @@ screen preferences():
                     textbutton _("Test"):
                         action Play("sound", config.sample_sound)
                         style "soundtest_button"
-            frame:
-                style_group "pref"
-                has vbox
-            
-                label _("Language")
-                textbutton "English" action Language(None)
-                textbutton "Русский" action Language("english")
-    
+
             if config.has_voice:
                 frame:
                     style_group "pref"

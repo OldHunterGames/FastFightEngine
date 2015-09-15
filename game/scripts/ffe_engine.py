@@ -55,7 +55,11 @@ class FFEngine(object):
         if self.check_fight_status() == "going on":
             self.actions_resolution("slow")
         if self.check_fight_status() == "going on":
+            self.action_pool["ally"] = []
+            self.action_pool["enemy"] = []
             return "new_turn"
+        self.action_pool["ally"] = []
+        self.action_pool["enemy"] = []
         return self.check_fight_status()
 
     def check_fight_status(self):
@@ -103,8 +107,8 @@ class FFEngine(object):
                 opposition = "enemy"
             for key in ("bold", "sly", "total", "subdual"):
                 self.damage_reduction(summary[side], key, summary[opposition], key)      # Specific defences works
-                self.damage_reduction(summary[side], key, summary[opposition], "total")  # Total defence works
-                self.damage_reduction(summary[side], "bold", summary[opposition], key)   # Rest defences reduce bold atk
+                self.damage_reduction(summary[side], "total", summary[opposition], key)  # Total defence works
+                self.damage_reduction(summary[side], key, summary[opposition], "bold")   # Rest defences reduce bold atk
 
         damage_to = {"ally": 0, "enemy": 0}
         for side in summary:
@@ -115,7 +119,7 @@ class FFEngine(object):
                 opposition = "enemy"
                 damaged_person = self.actor
             for key in ("bold", "sly", "total", "subdual"):
-                damage_to[side] += summary[opposition].atk[key]
+                damage_to[side] = summary[opposition].atk[key]
             damaged_person.hp -= damage_to[side]
             if damaged_person.hp <= 0:
                 damaged_person.active = False

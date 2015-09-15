@@ -38,6 +38,6 @@ label defeat:
     return
 
 label victory:
-    "Victory. Enemy: [fight.target.hp] Ally: [fight.actor.hp]"
+    "Victory"
     return    
     
