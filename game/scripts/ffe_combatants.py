@@ -23,3 +23,4 @@ class Person(object):
             self.avatar = "images/ava/slave.jpg"
 
 
+

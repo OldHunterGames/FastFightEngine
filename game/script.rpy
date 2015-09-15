@@ -1,4 +1,6 @@
-﻿init -2 python:
+﻿# Fast Fight Engine prototype for MER
+
+init -2 python:
     import sys
     sys.path.append(renpy.loader.transfn("scripts"))
     
@@ -9,7 +11,7 @@ init -1 python:
     from ffe_actions import *
    
 init python:
-    fight = FFEngine([FFCombatant(Person("Witcher", "bully"))], [FFCombatant(Person("Slave", "chick"))])
+    fight = FFEngine([FFCombatant(Person("Witcher", "tester"))], [FFCombatant(Person("Slave", "tester"))])
 
 # The game starts here.
 label start:

@@ -1,4 +1,4 @@
-Tue Sep 15 14:58:53 2015
+Tue Sep 15 18:48:33 2015
 Windows-7-6.1.7601-SP1
 Ren'Py 6.99.4.467
  
@@ -10,10 +10,10 @@ Loading error handling took 0.02s
 Loading script took 0.05s
 Loading persistent took 0.01s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.06s
+Running init code took 0.05s
 Analyze and compile ATL took 0.01s
 Index archives took 0.01s
-Cleaning cache took 0.03s
+Cleaning cache took 0.04s
 Making clean stores took 0.00s
 Creating interface object took 0.06s
 Cleaning stores took 0.00s
@@ -22,10 +22,10 @@ Build styles took 0.00s
 Prepare screens took 0.10s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.00s
+Interface start took 0.01s
 
 Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1680, 945)
+Screen sizes: virtual=(1280, 720) physical=(1664, 936)
 Vendor: 'NVIDIA Corporation'
 Renderer: 'GeForce GTX 570/PCIe/SSE2'
 Version: '4.5.0 NVIDIA 352.86'
@@ -356,8 +356,8 @@ Texture testing:
 - 2048px textures work.
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.055000 seconds.
-- Frame drawn at 0.061000 seconds.
-- Frame drawn at 0.063000 seconds.
-- Frame drawn at 0.081000 seconds.
-- 0.081000 seconds to render 5 frames.
+- Frame drawn at 0.042000 seconds.
+- Frame drawn at 0.049000 seconds.
+- Frame drawn at 0.051000 seconds.
+- Frame drawn at 0.070000 seconds.
+- 0.070000 seconds to render 5 frames.

@@ -29,7 +29,7 @@ label turn_resolution:
     return
     
 label new_turn:
-    "NEW TURN"
+    "New Turn"
     call user_turn
     return
 
@@ -38,6 +38,6 @@ label defeat:
     return
 
 label victory:
-    "Victory. Enemy: [fight.target.hp] Ally: [fight.actor.hp]"
+    "Victory"
     return    
     
